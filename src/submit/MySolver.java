@@ -1,5 +1,5 @@
 package submit;
-
+// Testing
 // some useful things to import. add any additional imports you need.
 import joeq.Compiler.Quad.*;
 import flow.Flow;
@@ -36,7 +36,6 @@ public class MySolver implements Flow.Solver {
 		} else {
 			processBackward(cfg);
 		}
-       
     }
 	
 	private void processForward(ControlFlowGraph cfg) {

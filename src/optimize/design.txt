@@ -1,1 +1,9 @@
 Describe your design for extra credit in this file.
+
+- Pseudo code for implementation of FindRedundantNullChecks.java:
+Direction: forward.
+Meet: intersection (of OUT of all predecessors).
+entry: Empty
+IN = Meet
+OUT = IN + NULL_CHECKED_REGISTER (need to make sure that it's a null check operation in the quad)
+Transfer Func: if register being null checked is in IN --> add its QUAD_ID to global HashSet of quad ids.

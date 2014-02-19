@@ -1,0 +1,1 @@
+java -cp /Users/khaled/Desktop/CS_243/lab2/lib/jwutil.jar:/Users/khaled/Desktop/CS_243/lab2/lib/javabdd-1.0b2.jar:/Users/khaled/Desktop/CS_243/lab2/lib/parun.jar:/Users/khaled/Desktop/CS_243/lab2/lib/joeq.jar $@
