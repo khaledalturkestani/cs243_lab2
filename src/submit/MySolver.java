@@ -52,7 +52,7 @@ public class MySolver implements Flow.Solver {
 			Quad q;
 			Flow.DataflowObject in = analysis.getEntry();
 			Flow.DataflowObject out = analysis.getExit();
-			
+			//System.out.println("got here");
 			while (cfgItr.hasNext()) {
 				//System.out.println("got here");
 				q = cfgItr.next();
@@ -103,6 +103,7 @@ public class MySolver implements Flow.Solver {
 			//System.out.println("\n\n\n\n");	
 		}
         // this needs to come last.
+		//System.out.println("GOT HERE");
         analysis.postprocess(cfg);
 	}
 	
