@@ -18,10 +18,10 @@ public class FindRedundantNullChecks implements Flow.Analysis {
     public static class VarSet implements Flow.DataflowObject {
         private Set<String> set;
         public static Set<String> universalSet;
-        public VarSet() { set = new HashSet<String>(); }
+        public VarSet() { set = new TreeSet<String>(); }
 
-        public void setToTop() { set = new HashSet<String>(); }
-        public void setToBottom() { set = new HashSet<String>(universalSet); }
+        public void setToTop() { set = new TreeSet<String>(universalSet); }
+        public void setToBottom() { set = new TreeSet<String>(); }
 
         public void meetWith(Flow.DataflowObject o) 
         {
@@ -32,7 +32,7 @@ public class FindRedundantNullChecks implements Flow.Analysis {
         public void copy(Flow.DataflowObject o) 
         {
             VarSet a = (VarSet) o;
-            set = new HashSet<String>(a.set);
+            set = new TreeSet<String>(a.set);
         }
 
         @Override
@@ -76,7 +76,7 @@ public class FindRedundantNullChecks implements Flow.Analysis {
         out = new VarSet[max];
         qit = new QuadIterator(cfg);
 
-        Set<String> s = new HashSet<String>();
+        Set<String> s = new TreeSet<String>();
         VarSet.universalSet = s;
 
         /* Arguments are always there. */
@@ -96,37 +96,35 @@ public class FindRedundantNullChecks implements Flow.Analysis {
         }
 
         entry = new VarSet();
-		//entry.set = new HashSet<String>(VarSet.universalSet);
+		//entry.setToTop();
         exit = new VarSet();
         transferfn.val = new VarSet();
         for (int i=0; i<in.length; i++) {
             in[i] = new VarSet();
+			//in[i].setToTop();
             out[i] = new VarSet();
+			out[i].setToTop();
         }
     }
 
     public void postprocess(ControlFlowGraph cfg) {
-        /*System.out.println("entry: "+entry.toString());
-        for (int i=1; i<in.length; i++) {
-            System.out.println(i+" in:  "+in[i].toString());
-            System.out.println(i+" out: "+out[i].toString());
-        }
-        System.out.println("exit: "+exit.toString());*/
 		QuadIterator qit = new QuadIterator(cfg);
+		TreeSet<Integer> qids = new TreeSet<Integer>();
 		while (qit.hasNext()) {
 			Quad q = qit.next();
 			Operator op = q.getOperator();
 			if (op instanceof Operator.NullCheck) {
-				//System.out.println("Got here!!");
 	            for (RegisterOperand use : q.getUsedRegisters()) {
-					//System.out.println(in[q.getID()]);
-					//System.out.println("Use: "+use.toString());
 					if (in[q.getID()].set.contains(use.getRegister().toString())) {
-						//System.out.println("GOT HERE");
-						System.out.printf(" "+q.getID());
+						qids.add(new Integer(q.getID()));
 					}
 	            }
 			}
+		}
+		Iterator itr = qids.iterator();
+		while (itr.hasNext()) {
+			Integer i = (Integer)itr.next();
+			System.out.printf(" "+i.intValue());
 		}
 		System.out.printf("\n");
     }
