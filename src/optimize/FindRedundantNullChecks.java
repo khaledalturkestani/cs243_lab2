@@ -117,6 +117,7 @@ public class FindRedundantNullChecks implements Flow.Analysis {
 	            for (RegisterOperand use : q.getUsedRegisters()) {
 					if (in[q.getID()].set.contains(use.getRegister().toString())) {
 						qids.add(new Integer(q.getID()));
+                                                qit.remove();
 					}
 	            }
 			}
