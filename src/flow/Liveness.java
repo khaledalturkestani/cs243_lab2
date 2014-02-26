@@ -6,6 +6,9 @@ import joeq.Compiler.Quad.Operand.RegisterOperand;
 
 public class Liveness implements Flow.Analysis {
 
+    private HashMap<Integer, Set<String>> inSet;
+    private HashMap<Integer, Set<String>> outSet;
+
     public static class VarSet implements Flow.DataflowObject {
         private Set<String> set;
         public static Set<String> universalSet;
@@ -48,6 +51,20 @@ public class Liveness implements Flow.Analysis {
 
         public void genVar(String v) {set.add(v);}
         public void killVar(String v) {set.remove(v);}
+    }
+
+    
+    public Set<String> getInSet(int quadID) {
+
+      return inSet.get(quadID);
+
+    }
+
+        
+    public Set<String> getOutSet(int quadID) {
+
+      return outSet.get(quadID);
+
     }
 
     private VarSet[] in, out;
@@ -102,6 +119,8 @@ public class Liveness implements Flow.Analysis {
         for (int i=1; i<in.length; i++) {
             System.out.println(i+" in:  "+in[i].toString());
             System.out.println(i+" out: "+out[i].toString());
+            inSet.put(i, (Set<String>)in[i]);
+            outSet.put(i, (Set<String>)out[i]);
         }
         System.out.println("exit: "+exit.toString());
     }

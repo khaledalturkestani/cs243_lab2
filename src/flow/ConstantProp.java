@@ -270,6 +270,20 @@ public class ConstantProp implements Flow.Analysis {
         out[q.getID()].copy(transferfn.val);
     }
 
+    
+   public Set<String> getInSet(int quadID) {
+
+     return null;
+
+   }
+
+        
+   public Set<String> getOutSet(int quadID) {
+
+     return null;
+
+   }
+
     /* The QuadVisitor that actually does the computation */
     public static class TransferFunction extends QuadVisitor.EmptyVisitor
     {

@@ -59,6 +59,21 @@ public class FindRedundantNullChecks implements Flow.Analysis {
         public void killVar(String v) {set.remove(v);}
     }
 
+
+    
+    public Set<String> getInSet(int quadID) {
+
+          return null;
+
+    }
+
+        
+    public Set<String> getOutSet(int quadID) {
+
+          return null;
+
+    }
+
     private VarSet[] in, out;
     private VarSet entry, exit;
 

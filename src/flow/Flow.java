@@ -3,6 +3,7 @@ package flow;
 import joeq.Main.Helper;
 import joeq.Class.*;
 import joeq.Compiler.Quad.*;
+import java.util.*;
 
 public abstract class Flow {
 
@@ -77,6 +78,16 @@ public abstract class Flow {
          * quad.
          **/
         void processQuad(Quad q);
+
+        /**
+         * Returns the IN value (Set of Strings) of a quad
+         **/
+        Set<String> getInSet(int quadID);
+        /**
+         * Returns the OUT value (Set of Strings) of a quad
+         **/	
+        Set<String> getOutSet(int quadID);
+        
     }
 
     public static interface Solver extends ControlFlowGraphVisitor {

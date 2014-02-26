@@ -1,1 +1,1 @@
-java -cp /Users/khaled/Desktop/CS_243/lab2/lib/jwutil.jar:/Users/khaled/Desktop/CS_243/lab2/lib/javabdd-1.0b2.jar:/Users/khaled/Desktop/CS_243/lab2/lib/parun.jar:/Users/khaled/Desktop/CS_243/lab2/lib/joeq.jar $@
+java -cp /afs/ir/users/s/u/sumitara/cs243_lab2/cs243_lab2/lib/jwutil.jar:/afs/ir/users/s/u/sumitara/cs243_lab2/cs243_lab2/lib/javabdd-1.0b2.jar:/afs/ir/users/s/u/sumitara/cs243_lab2/cs243_lab2/lib/parun.jar:/afs/ir/users/s/u/sumitara/cs243_lab2/cs243_lab2/lib/joeq.jar $@
