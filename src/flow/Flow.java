@@ -80,6 +80,7 @@ public abstract class Flow {
         void processQuad(Quad q);
 
         /**
+<<<<<<< HEAD
          * Returns the IN value (Set of Strings) of a quad
          **/
         Set<String> getInSet(int quadID);
@@ -88,6 +89,17 @@ public abstract class Flow {
          **/	
         Set<String> getOutSet(int quadID);
         
+=======
+         * Gets the In values (Set of Strings) of a quad
+         **/
+        Set<String> getInSet(Quad q);
+
+        
+        /**
+         * Gets the OUT values (Set of Strings) of a quad
+         **/
+        Set<String> getOutSet(Quad q);
+>>>>>>> 6d76e5fa1328108ec916ded4ad956a813343abed
     }
 
     public static interface Solver extends ControlFlowGraphVisitor {

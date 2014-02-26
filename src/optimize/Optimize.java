@@ -20,6 +20,7 @@ public class Optimize {
             // Run your optimization on each classes.
             mySolverArgs[2] = optimizeFiles.get(i);
 	    Flow.main(mySolverArgs);
+<<<<<<< HEAD
         }
 
         if (nullCheckOnly == false) {
@@ -39,6 +40,8 @@ public class Optimize {
           }
 
 
+=======
+>>>>>>> 6d76e5fa1328108ec916ded4ad956a813343abed
         }
 
     }
