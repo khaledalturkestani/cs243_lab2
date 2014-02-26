@@ -77,6 +77,17 @@ public abstract class Flow {
          * quad.
          **/
         void processQuad(Quad q);
+
+        /**
+         * Gets the In values (Set of Strings) of a quad
+         **/
+        Set<String> getInSet(Quad q);
+
+        
+        /**
+         * Gets the OUT values (Set of Strings) of a quad
+         **/
+        Set<String> getOutSet(Quad q);
     }
 
     public static interface Solver extends ControlFlowGraphVisitor {
